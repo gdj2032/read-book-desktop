@@ -1,20 +1,12 @@
-import { Component } from 'react';
+import * as React from 'react';
+import Root from 'containers/Root';
 import './App.scss';
 
-interface IProps {
-}
-
-interface IState {
-}
-
-class App extends Component<IProps, IState> {
-
-  state: IState = {}
-
+class App extends React.Component {
   render() {
     return (
-      <div>App</div>
-    )
+      <Root />
+    );
   }
 }
 
