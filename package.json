@@ -28,6 +28,7 @@
     "dotenv": "8.2.0",
     "dotenv-expand": "5.1.0",
     "electron-is-dev": "^2.0.0",
+    "electron-packager": "^15.2.0",
     "eslint": "^7.11.0",
     "eslint-config-react-app": "^6.0.0",
     "eslint-plugin-flowtype": "^5.2.0",
@@ -92,7 +93,9 @@
     "build": "node scripts/build.js",
     "test": "node scripts/test.js",
     "ele": "electron .",
-    "dev": "concurrently \"cross-env BROWSER=none yarn start\" \"wait-on http://localhost:3000 && electron .\""
+    "dev": "concurrently \"cross-env BROWSER=none yarn start\" \"wait-on http://localhost:3000 && electron .\"",
+    "packager-mac": "yarn build && electron-packager ./ 'read-book' --platform=darwin --out=dist --arch=x64 --electron-version=12.0.7 --overwrite --icon=./public/favicon.icns --asar",
+    "packager-win": "yarn build && electron-packager ./ 'read-book' --platform=win32 --asar --out=dist --electron-version=12.0.7 --overwrite --prune=true --icon=./public/favicon.icns --asar"
   },
   "browserslist": {
     "production": [
@@ -168,5 +171,9 @@
       "jest-watch-typeahead/testname"
     ],
     "resetMocks": true
+  },
+  "electronPackagerConfig": {
+    "packageManager": "npm",
+    "icon": "public/favicon.ico"
   }
 }
