@@ -1,2 +1,2 @@
 export * from './setting';
-export * from './types';
+export { default as types } from './types';

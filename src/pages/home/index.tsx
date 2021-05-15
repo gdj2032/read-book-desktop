@@ -1,7 +1,7 @@
 import { Component } from 'react';
-import { DatePicker } from 'antd';
 import './index.scss';
 import { connect } from 'store';
+import { ReadFile } from 'cls';
 
 interface IProps {
 }
@@ -19,11 +19,20 @@ class Home extends Component<IProps, IState> {
     this.state = {}
   }
 
+  readFile: ReadFile | undefined;
+
+  componentDidMount() {
+    this.readFile = new ReadFile();
+  }
+
+  componentWillUnmount() {
+    this.readFile?.close();
+  }
+
   render() {
     return (
-      <div>
+      <div className='g-home' id='home'>
         <h1>Home</h1>
-        <DatePicker/>
       </div>
     )
   }
