@@ -1,3 +1,4 @@
+import { addBookAction } from 'action';
 import { BOOK_TYPE } from 'constant';
 import { store } from 'store';
 
@@ -53,7 +54,10 @@ export default class ReadFile {
     const name = this.getBookName(nameType);
     const { books } = store.getState().local;
     const exit = books.find((e: IBook) => e.name === name);
-    if (exit) return;
+    if (exit) {
+      alert('小说名称已存在');
+      return;
+    };
     const type = this.getBookType(nameType);
     const reader = new FileReader();
     const gbk = 'gbk';
@@ -71,6 +75,7 @@ export default class ReadFile {
         updateTime: new Date(),
       }
       console.log(book);
+      store.dispatch(addBookAction(book));
     }
   }
 

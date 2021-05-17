@@ -5,13 +5,14 @@ import { ReadFile } from 'cls';
 
 interface IProps {
   dispatch: any;
+  books: IBook[];
 }
 
 interface IState {
 }
 
 @connect((state) => ({
-  local: state.local,
+  books: state.local.books,
 }))
 class Home extends Component<IProps, IState> {
 
@@ -30,10 +31,22 @@ class Home extends Component<IProps, IState> {
     this.readFile?.close();
   }
 
+  bookItem = (item: IBook) => {
+    return (
+      <div key={item.id} className='book-item'>
+        <div className='i-name'>{item.name}</div>
+        <div className='i-author'>{item.author}</div>
+      </div>
+    )
+  }
+
   render() {
+    const { books } = this.props;
     return (
       <div className='g-home' id='home'>
-        <h1>Home</h1>
+        {
+          books.map(e => this.bookItem(e))
+        }
       </div>
     );
   }
