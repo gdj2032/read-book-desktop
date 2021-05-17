@@ -3,23 +3,25 @@
   "linterOptions": {
     "exclude": [
       "config/**/*.js",
-      "node_modules/**/*.ts",
+      "node_modules",
       "coverage/lcov-report/*.js"
     ]
   },
   "rules": {
     "arrow-parens": false,
     "arrow-return-shorthand": [false],
-    "comment-format": [true, "check-space"],
+    "comment-format": false,
     "import-blacklist": [true],
     "interface-over-type-literal": false,
-    "interface-name": false,
+    "interface-name": [true, "always-prefix"],
     "max-line-length": false,
     "member-access": false,
     "member-ordering": [true, { "order": "fields-first" }],
     "newline-before-return": false,
+    "jsdoc-format": false,
     "no-any": false,
-    "no-console": false,
+    "no-console": [true, "log"],
+    "no-empty": false,
     "no-empty-interface": false,
     "no-import-side-effect": [true, {"ignore-module": "(\\.scss|\\.css)$"}],
     "no-inferrable-types": [true, "ignore-params", "ignore-properties"],
@@ -27,10 +29,11 @@
     "no-namespace": false,
     "no-null-keyword": false,
     "no-require-imports": false,
-    "no-submodule-imports": [true, "@src", "rxjs", "react-hot-loader", "antd/lib/form"],
+    "no-submodule-imports": [false, "@"],
     "no-this-assignment": [true, { "allow-destructuring": true }],
     "no-trailing-whitespace": true,
-    "no-unused-variable": [true, "react"],
+    "no-unused-variable": [true, "check-parameters"],
+    "no-unused-expression": [true, "allow-fast-null-checks"],
     "object-literal-sort-keys": false,
     "object-literal-shorthand": false,
     "one-variable-per-declaration": [false],
@@ -39,7 +42,7 @@
     "prefer-method-signature": false,
     "prefer-template": [true, "allow-single-concat"],
     "quotemark": [true, "single"],
-    "semicolon": [true, "always", "ignore-bound-class-methods"],
+    "semicolon": [false, "always", "ignore-bound-class-methods"],
     "trailing-comma": [
       true,
       {

@@ -3,7 +3,7 @@ import routeConfig from 'routes/routeConfig';
 import './index.scss';
 
 const PrimaryLayout = () => (
-  <div className="m-primaryLayout-wrap">
+  <div className='m-primaryLayout-wrap'>
     <Switch>
       {
         routeConfig.map((route: any) => (
