@@ -1,7 +1,7 @@
 import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import logger from 'redux-logger';
-import { persistStore, persistReducer } from 'redux-persist';
+import { persistStore, persistReducer} from 'redux-persist';
 import rootReducer from 'reducer';
 import storage from 'redux-persist/lib/storage';
 
