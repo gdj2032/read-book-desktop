@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import { DatePicker } from 'antd';
 import './index.scss';
-import { connect } from 'store';
+import { connect } from '@/store';
 
 interface IProps {
 }

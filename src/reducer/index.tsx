@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 import local from './local';
-import { reduxStore } from 'utils';
+import { reduxStore } from '@/utils';
 
 const appReducer = combineReducers({
   ...local,

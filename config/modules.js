@@ -66,6 +66,18 @@ function getWebpackAliases(options = {}) {
   if (path.relative(paths.appPath, baseUrlResolved) === '') {
     return {
       src: paths.appSrc,
+      '@/action': path.resolve(__dirname, '..', 'src/action'),
+      '@/cls': path.resolve(__dirname, '..', 'src/cls'),
+      '@/components': path.resolve(__dirname, '..', 'src/components'),
+      '@/constants': path.resolve(__dirname, '..', 'src/constants'),
+      '@/containers': path.resolve(__dirname, '..', 'src/containers'),
+      '@/image': path.resolve(__dirname, '..', 'src/image'),
+      '@/pages': path.resolve(__dirname, '..', 'src/pages'),
+      '@/reducer': path.resolve(__dirname, '..', 'src/reducer'),
+      '@/routes': path.resolve(__dirname, '..', 'src/routes'),
+      '@/store': path.resolve(__dirname, '..', 'src/store'),
+      '@/style': path.resolve(__dirname, '..', 'src/style'),
+      '@/utils': path.resolve(__dirname, '..', 'src/utils'),
     };
   }
 }

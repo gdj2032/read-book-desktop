@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Route, Switch, Redirect, BrowserRouter } from 'react-router-dom';
-import PrimaryLayout from 'containers/primaryLayout';
+import PrimaryLayout from '@/containers/primaryLayout';
 
 class CustomRoute extends React.Component{
 

@@ -1,5 +1,5 @@
 import { createReducer } from 'redux-act';
-import types from 'action/types';
+import { types } from '@/action';
 
 const local = {
   local: createReducer({
