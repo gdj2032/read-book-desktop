@@ -1,6 +1,6 @@
 import { createAction } from 'redux-act';
 
-const types: any = {
+const types: { [key: string]: any } = {
   local: createAction('LOCAL'),
 }
 

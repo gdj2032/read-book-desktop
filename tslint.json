@@ -16,11 +16,11 @@
     "interface-name": [true, "always-prefix"],
     "max-line-length": false,
     "member-access": false,
-    "member-ordering": [true, { "order": "fields-first" }],
+    "member-ordering": false,
     "newline-before-return": false,
     "jsdoc-format": false,
     "no-any": false,
-    "no-console": [true, "log"],
+    "no-console": false,
     "no-empty": false,
     "no-empty-interface": false,
     "no-import-side-effect": [true, {"ignore-module": "(\\.scss|\\.css)$"}],
@@ -64,7 +64,8 @@
       "ban-keywords",
       "check-format",
       "allow-pascal-case",
-      "allow-leading-underscore"
+      "allow-leading-underscore",
+      "allow-snake-case"
     ],
     "jsx-no-multiline-js": false,
     "jsx-no-lambda": false

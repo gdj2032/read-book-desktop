@@ -8,8 +8,8 @@ class CustomRoute extends React.Component{
     return (
       <BrowserRouter>
         <Switch>
-          <Route path="/app" component={PrimaryLayout} />
-          <Redirect to="/app/home" />
+          <Route path='/app' component={PrimaryLayout} />
+          <Redirect to='/app/home' />
         </Switch>
       </BrowserRouter>
     );
