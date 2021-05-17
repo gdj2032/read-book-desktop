@@ -9,15 +9,15 @@ interface IState {
 
 class Book extends Component<IProps, IState> {
 
-  constructor(props) {
+  constructor(props: IProps) {
     super(props);
-    this.state = {}
+    this.state = {};
   }
 
   render() {
     return (
       <div>Book</div>
-    )
+    );
   }
 }
 

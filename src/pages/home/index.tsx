@@ -14,9 +14,9 @@ interface IState {
 }))
 class Home extends Component<IProps, IState> {
 
-  constructor(props) {
+  constructor(props: IProps) {
     super(props);
-    this.state = {}
+    this.state = {};
   }
 
   render() {
@@ -25,7 +25,7 @@ class Home extends Component<IProps, IState> {
         <h1>Home</h1>
         <DatePicker/>
       </div>
-    )
+    );
   }
 }
 
