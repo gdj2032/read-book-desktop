@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "experimentalDecorators": true,
-    "baseUrl": "src",
+    "baseUrl": "./",
     "outDir": "build/dist",
     "module": "esnext",
     "target": "es5",
@@ -14,6 +14,9 @@
     "jsx": "react-jsx",
     "moduleResolution": "node",
     "rootDir": "src",
+    "paths": {
+      "@/*": ["src/*"],
+    },
     "forceConsistentCasingInFileNames": true,
     "noImplicitReturns": true,
     "noImplicitThis": true,

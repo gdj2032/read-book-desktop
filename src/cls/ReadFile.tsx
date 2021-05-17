@@ -1,6 +1,6 @@
-import { addBookAction } from 'action';
-import { BOOK_TYPE } from 'constant';
-import { store } from 'store';
+import { addBookAction } from '@/action';
+import { BOOK_TYPE } from '@/constants';
+import { store } from '@/store';
 
 export default class ReadFile {
 

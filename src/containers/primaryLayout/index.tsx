@@ -1,5 +1,5 @@
 import { Route, Switch } from 'react-router-dom';
-import routeConfig from 'routes/routeConfig';
+import routeConfig from '@/routes/routeConfig';
 import './index.scss';
 
 const PrimaryLayout = () => (

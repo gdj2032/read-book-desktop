@@ -1,7 +1,7 @@
 import { RouteProps } from 'react-router-dom';
 import {
   HomePage, BookPage
-} from 'pages';
+} from '@/pages';
 import pathConfig from './pathConfig';
 
 const routeConfig: CustomRouteProps[] = [

@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import './index.scss';
-import { connect } from 'store';
-import { ReadFile } from 'cls';
+import { ReadFile } from '@/cls';
+import { connect } from '@/store';
 
 interface IProps {
   dispatch: any;
