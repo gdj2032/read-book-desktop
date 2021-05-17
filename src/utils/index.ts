@@ -1,4 +1,3 @@
-
 export const noop = (v: any) => {};
 
 export const reduxStore = {
@@ -8,18 +7,18 @@ export const reduxStore = {
 
 export const getFileSize = (size: number) => {
   if(size < 1024) {
-    return `${size}Bytes`
+    return `${size}Bytes`;
   }
   else if(size < 1048576) {
-    return `${(size / 1024).toFixed(2)}KB`
+    return `${(size / 1024).toFixed(2)}KB`;
   }
   else if(size < 1073741824) {
-    return `${(size / 1048576).toFixed(2)}MB`
+    return `${(size / 1048576).toFixed(2)}MB`;
   }
   else {
-    return `${(size / 1073741824).toFixed(2)}GB`
-  };
-}
+    return `${(size / 1073741824).toFixed(2)}GB`;
+  }
+};
 
 export /**
  * 数组去重
@@ -28,9 +27,9 @@ export /**
  * @returns
  */
 const unique = (arr: any[]) => {
-  arr = arr.map((e: any) => e.trim())
-  return Array.from(new Set(arr))
-}
+  arr = arr.map((e: any) => e.trim());
+  return Array.from(new Set(arr));
+};
 
 export /**
  * 获取行高
