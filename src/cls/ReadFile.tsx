@@ -1,12 +1,12 @@
 export default class ReadFile {
 
-  dragWrapper: HTMLElement | null | undefined;
+  private dragWrapper: HTMLElement | null | undefined;
 
   constructor() {
     this.init();
   }
 
-  init = () => {
+  private init = () => {
     this.dragWrapper = document.getElementById("home");
     //添加拖拽事件监听器
     this.dragWrapper?.addEventListener("drop", async (e: any) => {

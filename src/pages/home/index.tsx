@@ -13,13 +13,13 @@ interface IState {
   local: state.local,
 }))
 class Home extends Component<IProps, IState> {
+  readFile: ReadFile | undefined;
 
-  constructor(props) {
+  constructor(props: IProps) {
     super(props);
-    this.state = {}
+    this.state = {};
   }
 
-  readFile: ReadFile | undefined;
 
   componentDidMount() {
     this.readFile = new ReadFile();
@@ -34,7 +34,7 @@ class Home extends Component<IProps, IState> {
       <div className='g-home' id='home'>
         <h1>Home</h1>
       </div>
-    )
+    );
   }
 }
 
