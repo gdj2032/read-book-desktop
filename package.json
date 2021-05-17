@@ -4,6 +4,15 @@
   "private": true,
   "main": "main.js",
   "homepage": ".",
+  "scripts": {
+    "start": "node scripts/start.js",
+    "build": "node scripts/build.js",
+    "test": "node scripts/test.js",
+    "ele": "electron .",
+    "dev": "concurrently \"cross-env BROWSER=none yarn start\" \"wait-on http://localhost:3000 && electron .\"",
+    "packager-mac": "yarn build && electron-packager ./ 'read-book' --platform=darwin --out=dist --arch=x64 --electron-version=12.0.7 --overwrite --icon=./public/favicon.icns --asar",
+    "packager-win": "yarn build && electron-packager ./ 'read-book' --platform=win32 --asar --out=dist --electron-version=12.0.7 --overwrite --prune=true --icon=./public/favicon.icns --asar"
+  },
   "dependencies": {
     "@babel/core": "7.12.3",
     "@babel/plugin-proposal-decorators": "^7.14.2",
@@ -11,10 +20,7 @@
     "@svgr/webpack": "5.5.0",
     "@types/react-router-dom": "^5.1.7",
     "@types/redux-persist": "^4.3.1",
-    "@typescript-eslint/eslint-plugin": "^4.5.0",
-    "@typescript-eslint/parser": "^4.5.0",
     "antd": "^4.15.5",
-    "babel-eslint": "^10.1.0",
     "babel-jest": "^26.6.0",
     "babel-loader": "8.1.0",
     "babel-plugin-import": "^1.13.3",
@@ -29,16 +35,6 @@
     "dotenv-expand": "5.1.0",
     "electron-is-dev": "^2.0.0",
     "electron-packager": "^15.2.0",
-    "eslint": "^7.11.0",
-    "eslint-config-react-app": "^6.0.0",
-    "eslint-plugin-flowtype": "^5.2.0",
-    "eslint-plugin-import": "^2.22.1",
-    "eslint-plugin-jest": "^24.1.0",
-    "eslint-plugin-jsx-a11y": "^6.3.1",
-    "eslint-plugin-react": "^7.21.5",
-    "eslint-plugin-react-hooks": "^4.2.0",
-    "eslint-plugin-testing-library": "^3.9.2",
-    "eslint-webpack-plugin": "^2.5.2",
     "file-loader": "6.1.1",
     "fs-extra": "^9.0.1",
     "html-webpack-plugin": "4.5.0",
@@ -88,15 +84,6 @@
     "webpack-manifest-plugin": "2.2.0",
     "workbox-webpack-plugin": "5.1.4"
   },
-  "scripts": {
-    "start": "node scripts/start.js",
-    "build": "node scripts/build.js",
-    "test": "node scripts/test.js",
-    "ele": "electron .",
-    "dev": "concurrently \"cross-env BROWSER=none yarn start\" \"wait-on http://localhost:3000 && electron .\"",
-    "packager-mac": "yarn build && electron-packager ./ 'read-book' --platform=darwin --out=dist --arch=x64 --electron-version=12.0.7 --overwrite --icon=./public/favicon.icns --asar",
-    "packager-win": "yarn build && electron-packager ./ 'read-book' --platform=win32 --asar --out=dist --electron-version=12.0.7 --overwrite --prune=true --icon=./public/favicon.icns --asar"
-  },
   "browserslist": {
     "production": [
       ">0.2%",
@@ -110,6 +97,7 @@
     ]
   },
   "devDependencies": {
+    "@babel/preset-env": "^7.14.2",
     "@types/jest": "^26.0.15",
     "@types/node": "^12.0.0",
     "@types/react": "^17.0.0",
