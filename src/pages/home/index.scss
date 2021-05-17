@@ -1,4 +1,15 @@
 .g-home {
   width: 100vw;
   height: 100vh;
+  .m-books {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap-reverse;
+    padding: 20px;
+    .book-item {
+      width: 200px;
+      height: 300px;
+      margin-right: 20px;
+    }
+  }
 }

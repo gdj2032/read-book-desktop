@@ -93,7 +93,7 @@ export default class ReadFile {
     if (t.length > 0) {
       return t[0].split('作者：')[1]
     }
-    return '未知';
+    return '';
   }
 
 }

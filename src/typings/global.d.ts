@@ -1,3 +1,7 @@
+interface Window {
+  require: any;
+}
+
 interface IBook {
   id: number; //唯一标识
   author: string; //作者

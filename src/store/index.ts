@@ -9,7 +9,7 @@ const config = {
   key: 'key',
   storage: storage,
   blacklist: [],
-  whitelist: [],
+  whitelist: ['local'],
 };
 
 const isDev = process.env.NODE_ENV === 'development';

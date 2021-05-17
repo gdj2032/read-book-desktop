@@ -5,7 +5,7 @@ const local = {
   local: createReducer({
     [types.local]: (state, payload: any) => ({ ...state, ...payload }),
     [types.addBook]: (state: any, payload: any) => {
-      const books = state.books;
+      const books = [...state.books];
       books.push(payload);
       return {
         ...state,
@@ -13,7 +13,7 @@ const local = {
       }
     },
     [types.removeBook]: (state, payload) => {
-      const books = state.books.filter((e: IBook) => e.name !== payload.name);
+      const books = [...state.books].filter((e: IBook) => e.name !== payload.name);
       return {
         ...state,
         books,

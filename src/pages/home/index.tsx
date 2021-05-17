@@ -2,6 +2,7 @@ import { Component } from 'react';
 import './index.scss';
 import { ReadFile } from '@/cls';
 import { connect } from '@/store';
+import { BOOK_BG_COLOR } from '@/constants';
 
 interface IProps {
   dispatch: any;
@@ -33,7 +34,7 @@ class Home extends Component<IProps, IState> {
 
   bookItem = (item: IBook) => {
     return (
-      <div key={item.id} className='book-item'>
+      <div key={item.id} className='book-item' style={{ backgroundColor: BOOK_BG_COLOR[item.id % BOOK_BG_COLOR.length] }} >
         <div className='i-name'>{item.name}</div>
         <div className='i-author'>{item.author}</div>
       </div>
@@ -44,9 +45,11 @@ class Home extends Component<IProps, IState> {
     const { books } = this.props;
     return (
       <div className='g-home' id='home'>
-        {
-          books.map(e => this.bookItem(e))
-        }
+        <div className='m-books'>
+          {
+            books.map(e => this.bookItem(e))
+          }
+        </div>
       </div>
     );
   }

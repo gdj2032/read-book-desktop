@@ -11,4 +11,4 @@ window.addEventListener('DOMContentLoaded', () => {
   }
 });
 
-// window.nativeTheme = require('electron').nativeTheme;
+global.electron = require('electron');

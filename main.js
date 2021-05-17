@@ -18,6 +18,8 @@ function createWindow() {
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
       webSecurity: false,
+      nodeIntegration: true,
+      nodeIntegrationInWorker: true
     },
     show: false, //创建窗口时 show: false，等到初始化完成后再显示
   })
@@ -28,7 +30,7 @@ function createWindow() {
     mainWindow.show()
   })
   if (isDev) {
-    mainWindow.loadURL('http://localhost:3000');
+    mainWindow.loadURL('http://localhost:9999');
     // Open the DevTools.
     mainWindow.webContents.openDevTools()
   } else {

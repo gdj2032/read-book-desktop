@@ -9,7 +9,7 @@
     "build": "node scripts/build.js",
     "test": "node scripts/test.js",
     "ele": "electron .",
-    "dev": "concurrently \"cross-env BROWSER=none yarn start\" \"wait-on http://localhost:3000 && electron .\"",
+    "dev": "concurrently \"cross-env BROWSER=none yarn start\" \"wait-on http://localhost:9999 && electron .\"",
     "packager-mac": "yarn build && electron-packager ./ 'read-book' --platform=darwin --out=dist --arch=x64 --electron-version=12.0.7 --overwrite --icon=./public/favicon.icns --asar",
     "packager-win": "yarn build && electron-packager ./ 'read-book' --platform=win32 --asar --out=dist --electron-version=12.0.7 --overwrite --prune=true --icon=./public/favicon.icns --asar"
   },
