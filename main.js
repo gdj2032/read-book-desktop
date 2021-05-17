@@ -18,9 +18,15 @@ function createWindow() {
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
       webSecurity: false,
-    }
+    },
+    show: false, //创建窗口时 show: false，等到初始化完成后再显示
   })
-
+  //启动瞬间白屏问题
+  mainWindow.on('ready-to-show', () => {
+    // 等初始化完成后再显示
+    // mainWindow.maximize() //最大化显示
+    mainWindow.show()
+  })
   if (isDev) {
     mainWindow.loadURL('http://localhost:3000');
     // Open the DevTools.
@@ -59,6 +65,9 @@ app.on('activate', function () {
   // dock icon is clicked and there are no other windows open.
   if (mainWindow === null) createWindow()
 })
+
+//黑屏问题
+app.disableHardwareAcceleration() //程序 ready 前禁用GPU加速
 
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and require them here.
