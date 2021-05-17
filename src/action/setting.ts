@@ -1,8 +1,9 @@
 import types from './types';
 
-const UPDATE = (type: any, value: any) => (dispatch: any) => {
-  dispatch(types[type]({ type, value }));
+export const updateSetAction = (value: { [key: string]: any }) => (dispatch: any) => {
+  dispatch(types.set(value))
 };
 
-
-export const updateLocal = (value: any) => (dispatch: any) => dispatch(UPDATE('local', value));
+export const addBookAction = (info: IBook) => (dispatch: any) => {
+  dispatch(types.addBook(info));
+};

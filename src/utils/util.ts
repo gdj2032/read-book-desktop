@@ -5,6 +5,8 @@ export const reduxStore = {
   getState: noop,
 };
 
+export const isDev = process.env.NODE_ENV === 'development';
+
 export const getFileSize = (size: number) => {
   if(size < 1024) {
     return `${size}Bytes`;

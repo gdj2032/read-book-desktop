@@ -4,6 +4,7 @@ import { connect } from 'store';
 import { ReadFile } from 'cls';
 
 interface IProps {
+  dispatch: any;
 }
 
 interface IState {
@@ -13,13 +14,13 @@ interface IState {
   local: state.local,
 }))
 class Home extends Component<IProps, IState> {
+
   readFile: ReadFile | undefined;
 
   constructor(props: IProps) {
     super(props);
     this.state = {};
   }
-
 
   componentDidMount() {
     this.readFile = new ReadFile();

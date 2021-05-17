@@ -9,17 +9,17 @@ const config = {
   key: 'key',
   storage: storage,
   blacklist: [],
+  whitelist: [],
 };
 
-const __dev__ = process.env.NODE_ENV === 'development';
+const isDev = process.env.NODE_ENV === 'development';
 
-export default function createAppStore() {
-  const store = createStore(
-    persistReducer(config, rootReducer),
-    __dev__ ? applyMiddleware(thunk, logger) : applyMiddleware(thunk),
-  );
-  const persistor: any = persistStore(store);
-  return { store, persistor };
-}
+const store = createStore(
+  persistReducer(config, rootReducer),
+  isDev ? applyMiddleware(thunk, logger) : applyMiddleware(thunk),
+);
+const persistor = persistStore(store);
+
+export { store, persistor }
 
 export * from './connect';

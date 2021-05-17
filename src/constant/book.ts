@@ -17,3 +17,8 @@ export const BOOK_BG_COLOR = [
   '#97A160',
   '#C0A67A',
 ];
+
+export const BOOK_TYPE = {
+  txt: 'txt',
+  epub: 'epub',
+}
