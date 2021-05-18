@@ -1,5 +1,6 @@
 import { createReducer } from 'redux-act';
 import { types } from '@/action';
+import { themes } from '@/style';
 
 const local = {
   local: createReducer({
@@ -12,8 +13,8 @@ const local = {
         books,
       }
     },
-    [types.removeBook]: (state, payload) => {
-      const books = [...state.books].filter((e: IBook) => e.name !== payload.name);
+    [types.removeBook]: (state, payload: number[]) => {
+      const books = [...state.books].filter((e: IBook) => !payload.includes(e.id));
       return {
         ...state,
         books,
@@ -21,15 +22,15 @@ const local = {
     },
   }, {
     books: [], //书籍列表
-    texts: [], //小说列表
+    novels: [], //小说列表
   }),
   set: createReducer({
     [types.set]: (state, payload) => ({ ...state, ...payload }),
   }, {
     fontSize: 14,
     lineHeight: 30,
-    fontColor: '#000000',
-    backgroundColor: 'rgba(255, 255, 255, 1)',
+    fontColor: themes.color.black,
+    backgroundColor: themes.color.white,
   }),
 }
 

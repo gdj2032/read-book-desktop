@@ -1,0 +1,52 @@
+.read-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: $home_menu_bg_color;
+  z-index: 100;
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  .bg-color {
+    width: 50%;
+    height: 28px;
+    line-height: 28px;
+    display: flex;
+    .bg-color-item {
+      width: 28px;
+      height: 28px;
+      border-radius: 20px;
+      margin-right: 10px;
+    }
+  }
+  .font-size {
+    width: 50%;
+    height: 28px;
+    line-height: 28px;
+    display: flex;
+    .font-size-a-row {
+      width: 200px;
+      display: flex;
+      background-color: $white;
+      .a-small {
+        flex: 1;
+        font-size: 14px;
+        text-align: center;
+        border-right: 1px solid $black;
+      }
+      .a-big {
+        flex: 1;
+        font-size: 24px;
+        text-align: center;
+      }
+    }
+  }
+  .menu-text {
+    color: $white;
+    font-size: 20px;
+    font-weight: bold;
+    margin-right: 10px;
+    word-break: keep-all;
+  }
+}

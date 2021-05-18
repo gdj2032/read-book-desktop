@@ -36,7 +36,7 @@ export default class ReadFile {
     });
   }
 
-  private addBook = (file: any) => {
+  addBook = (file: any) => {
     const { name } = file;
     const type = this.getBookType(name);
     switch (type) {
@@ -54,6 +54,7 @@ export default class ReadFile {
     const { books } = store.getState().local;
     const exit = books.find((e: IBook) => e.name === name);
     if (exit) {
+      console.log(1);
       alert('小说名称已存在');
       return;
     };

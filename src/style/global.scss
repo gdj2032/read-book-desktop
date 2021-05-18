@@ -1,1 +1,43 @@
-$blue: #3588FA;
+$white: #fff;
+$black: #000;
+$home_menu_bg_color: #00000050;
+$orange: rgb(255, 158, 79);
+$red1: rgba(195, 14, 35, 1);
+$gray1: #cccccc;
+$gray2: #707070;
+$white50: #ffffff50;
+
+$box_shadow_light: rgba(255, 255, 255, 0.1) 0px 5px 8px 1px;
+$box_shadow_black_1: rgba(0, 0, 0, 0.1) 0px 5px 8px 1px;
+$box_shadow_black_5: rgba(0, 0, 0, 0.5) 8px 12px 12px 0px;
+
+$gray_line: rgb(163, 163, 163);
+
+.pointer {
+  cursor: pointer;
+}
+
+.c-button {
+  padding: 4px 20px;
+  border-radius: 20px;
+  color: $white;
+  background-color: $orange;
+}
+
+.cancel-button {
+  padding: 4px 20px;
+  border-radius: 20px;
+  color: $white;
+  background-color: $gray2;
+}
+
+.delete-button {
+  padding: 4px 20px;
+  border-radius: 20px;
+  color: $white;
+  background-color: $red1;
+}
+
+.margin_right_20 {
+  margin-right: 20px;
+}
