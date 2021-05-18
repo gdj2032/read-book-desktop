@@ -8,6 +8,8 @@ class App extends React.Component {
   componentDidMount() {
     if (isMac) {
       // const nativeTheme = window.require('electron').nativeTheme;
+      // const nativeTheme = window.electron.nativeTheme;
+      // console.log('🚀 ~ file: App.tsx ~ line 11 ~ App ~ componentDidMount ~ nativeTheme', nativeTheme)
       // const { nativeTheme } = window;
       // const isDark = nativeTheme.shouldUseDarkColors;
       // console.log('isDark: ', isDark);

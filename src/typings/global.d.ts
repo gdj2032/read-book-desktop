@@ -1,5 +1,5 @@
 interface Window {
-  require: any;
+  electron: any;
 }
 
 interface IBook {

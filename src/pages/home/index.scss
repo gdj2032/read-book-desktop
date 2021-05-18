@@ -4,12 +4,24 @@
   .m-books {
     display: flex;
     align-items: center;
-    flex-wrap: wrap-reverse;
+    flex-wrap: wrap;
     padding: 20px;
     .book-item {
-      width: 200px;
-      height: 300px;
-      margin-right: 20px;
+      width: 160px;
+      height: 240px;
+      margin-bottom: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+      .i-name {
+        height: 40px;
+        line-height: 40px;
+      }
+      .i-author {
+        height: 40px;
+        line-height: 40px;
+      }
     }
   }
 }

@@ -13,6 +13,18 @@ export const isMac = /macintosh|mac os x/i.test(navigator.userAgent);
 /** * 是否为windows系统 * */
 export const isWindows = /windows|win32/i.test(navigator.userAgent);
 
+/**
+ * 获取当前可视区域窗口宽高
+ *
+ * all 默认为false 不包括顶部的title和系统按钮高度
+ *
+ * @param {boolean} [all]
+ */
+export const getWindowSize = (all?: boolean) => ({
+  width: all ? window.outerWidth : window.innerWidth,
+  height: all ? window.outerHeight : window.innerHeight,
+});
+
 export const getFileSize = (size: number) => {
   if (size < 1024) {
     return `${size}Bytes`;
