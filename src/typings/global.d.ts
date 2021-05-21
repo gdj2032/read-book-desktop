@@ -2,8 +2,10 @@ interface Window {
   electron: any;
 }
 
+type str_num = string | number;
+
 interface IBook {
-  id: number; //唯一标识
+  id: string; //唯一标识
   author: string; //作者
   content: string; //正文
   createTime: Date; //添加时间

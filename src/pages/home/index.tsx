@@ -8,17 +8,19 @@ import { PlusOutlined, CheckOutlined } from '@ant-design/icons';
 import { Popover } from 'antd';
 import { removeBookAction, updateSetAction } from '@/action';
 import { themes } from '@/style';
+import pathConfig from '@/routes/pathConfig';
 
 interface IProps {
   dispatch: any;
   set: any;
   books: IBook[];
+  history: any;
 }
 
 interface IState {
   marginLeft: number;
   manager: boolean;
-  checks: number[]; //小说id数组
+  checks: string[]; //小说id数组
 }
 
 @connect((state) => ({
@@ -56,7 +58,7 @@ class Home extends Component<IProps, IState> {
   bookItem = (item: IBook) => {
     const { marginLeft, manager, checks } = this.state;
     return (
-      <div key={item.id} className='book-item' style={{ backgroundColor: BOOK_BG_COLOR[item.id % BOOK_BG_COLOR.length], marginLeft }} >
+      <div key={item.id} className='book-item' onClick={() => this.onBookItem(item)} style={{ backgroundColor: BOOK_BG_COLOR[Number(item.id) % BOOK_BG_COLOR.length], marginLeft }} >
         <div className='i-name'>{item.name}</div>
         <div className='i-author'>{item.author || '未知'}</div>
         {
@@ -67,6 +69,11 @@ class Home extends Component<IProps, IState> {
         }
       </div>
     )
+  }
+
+  onBookItem = (item: IBook) => {
+
+    this.props.history.push(`${pathConfig.book}/${item.id}`);
   }
 
   popContent = () => (
@@ -121,7 +128,7 @@ class Home extends Component<IProps, IState> {
     })
   }
 
-  onCheckBook = (id: number) => {
+  onCheckBook = (id: string) => {
     this.setState(preState => {
       const c = [...preState.checks];
       const idx = c.indexOf(id)

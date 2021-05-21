@@ -8,6 +8,6 @@ export const addBookAction = (book: IBook) => (dispatch: any) => {
   dispatch(types.addBook(book));
 };
 
-export const removeBookAction = (ids: number[]) => (dispatch: any) => {
+export const removeBookAction = (ids: string[]) => (dispatch: any) => {
   dispatch(types.removeBook(ids));
 };

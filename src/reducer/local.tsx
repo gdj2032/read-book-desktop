@@ -5,7 +5,7 @@ import { themes } from '@/style';
 const local = {
   local: createReducer({
     [types.local]: (state, payload: any) => ({ ...state, ...payload }),
-    [types.addBook]: (state: any, payload: any) => {
+    [types.addBook]: (state: any, payload: IBook) => {
       const books = [...state.books];
       books.push(payload);
       return {
@@ -13,7 +13,7 @@ const local = {
         books,
       }
     },
-    [types.removeBook]: (state, payload: number[]) => {
+    [types.removeBook]: (state, payload: string[]) => {
       const books = [...state.books].filter((e: IBook) => !payload.includes(e.id));
       return {
         ...state,

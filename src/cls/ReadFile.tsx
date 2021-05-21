@@ -66,7 +66,7 @@ export default class ReadFile {
       const content = res.target.result;
       const book: IBook = {
         author: this.getAuthor(content),
-        id: new Date().getTime(),
+        id: String(new Date().getTime()),
         createTime: new Date(),
         content,
         name,
