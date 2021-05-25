@@ -1,5 +1,5 @@
 interface Window {
-  electron: any;
+  eleBridge: any;
 }
 
 type str_num = string | number;

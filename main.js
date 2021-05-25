@@ -17,8 +17,10 @@ function createWindow() {
     minHeight: 800,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
+      webSecurity: false,
       nodeIntegration: true,
-      nodeIntegrationInWorker: true
+      contextIsolation: false,
+      enableRemoteModule: true,
     },
     show: false, //创建窗口时 show: false，等到初始化完成后再显示
   })
