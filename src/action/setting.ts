@@ -11,3 +11,11 @@ export const addBookAction = (book: IBook) => (dispatch: any) => {
 export const removeBookAction = (ids: string[]) => (dispatch: any) => {
   dispatch(types.removeBook(ids));
 };
+
+export const addNovelAction = (novel: INovel) => (dispatch: any) => {
+  dispatch(types.addNovel(novel));
+};
+
+export const removeNovelAction = (ids: string[]) => (dispatch: any) => {
+  dispatch(types.removeNovel(ids));
+};

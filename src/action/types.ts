@@ -5,6 +5,8 @@ const types: { [key: string]: any } = {
   addBook: createAction('ADD_BOOK'),
   removeBook: createAction('REMOVE_BOOK'),
   set: createAction('SET'),
+  addNovel: createAction('ADD_NOVEL'),
+  removeNovel: createAction('REMOVE_NOVEL'),
 }
 
 export default types;

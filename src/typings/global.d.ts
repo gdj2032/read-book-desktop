@@ -16,8 +16,22 @@ interface IBook {
   updateTime: Date,
 }
 
-interface IContent {
+interface INovel {
+  id: string;
+  name: string; //书名
+  chapter: IChapter[];
+  recently: IRecently;
+}
 
+interface IChapter {
+  page: number;
+  title: string;
+  content: string;
+}
+
+interface IRecently {
+  page: number;
+  contentPage: number; //章节第几页
 }
 
 // interface IStoreState {

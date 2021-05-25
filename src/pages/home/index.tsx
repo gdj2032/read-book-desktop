@@ -63,7 +63,7 @@ class Home extends Component<IProps, IState> {
         <div className='i-author'>{item.author || '未知'}</div>
         {
           manager &&
-          <div className='manager-check' onClick={() => this.onCheckBook(item.id)}>
+          <div className='manager-check' onClick={(e) => this.onCheckBook(item.id, e)}>
             <CheckOutlined className={`check-icon ${checks.includes(item.id) && 'check-icon-active'}`} />
           </div>
         }
@@ -128,7 +128,8 @@ class Home extends Component<IProps, IState> {
     })
   }
 
-  onCheckBook = (id: string) => {
+  onCheckBook = (id: string, e) => {
+    e.stopPropagation()
     this.setState(preState => {
       const c = [...preState.checks];
       const idx = c.indexOf(id)

@@ -20,6 +20,21 @@ const local = {
         books,
       }
     },
+    [types.addNovel]: (state: any, payload: INovel) => {
+      const novels = [...state.novels];
+      novels.push(payload);
+      return {
+        ...state,
+        novels,
+      }
+    },
+    [types.removeNovel]: (state, payload: string[]) => {
+      const novels = [...state.novels].filter((e: INovel) => !payload.includes(e.id));
+      return {
+        ...state,
+        novels,
+      }
+    },
   }, {
     books: [], //书籍列表
     novels: [], //小说列表
