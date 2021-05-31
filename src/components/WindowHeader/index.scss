@@ -1,0 +1,39 @@
+.window-header {
+  -webkit-app-region: drag;
+  width: 100%;
+  height: 40px;
+  background-color: rgb(20, 14, 32);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  .three-btn {
+    display: flex;
+    align-items: center;
+    .close,
+    .shrink,
+    .enlarge {
+      border-radius: 50%;
+      background: #fc625d;
+      width: 11px;
+      height: 11px;
+      margin-left: 10px;
+      -webkit-app-region: no-drag;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      .wh-icon {
+        width: 8px;
+        height: 8px;
+      }
+    }
+    .shrink {
+      background: #fdbc40;
+    }
+    .enlarge {
+      background: #35cd4b;
+    }
+  }
+  .three-btn:hover {
+
+  }
+}

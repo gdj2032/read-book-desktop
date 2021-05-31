@@ -1,9 +1,13 @@
-import * as React from 'react';
+import { WindowHeader } from '@/components';
+import { Fragment, Component } from 'react';
 import CustomRoute from '../routes';
-class RouteContainer extends React.Component {
+class RouteContainer extends Component {
   render() {
     return (
-      <CustomRoute />
+      <Fragment>
+        <WindowHeader />
+        <CustomRoute />
+      </Fragment>
     );
   }
 }
