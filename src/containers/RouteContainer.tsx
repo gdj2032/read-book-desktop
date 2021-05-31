@@ -5,7 +5,7 @@ class RouteContainer extends Component {
   render() {
     return (
       <Fragment>
-        <WindowHeader />
+        {/* <WindowHeader /> */}
         <CustomRoute />
       </Fragment>
     );

@@ -15,7 +15,7 @@ function createWindow() {
     height: 800,
     minWidth: 1000,
     minHeight: 800,
-    frame: false,
+    // frame: false, //不显示顶部目录
     fullscreenable: true,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
