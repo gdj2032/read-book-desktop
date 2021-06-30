@@ -1,0 +1,3 @@
+export const READ_BOOK_EMIT = {
+  INIT_CHAPTER: 'INIT_CHAPTER',
+}

@@ -1,20 +1,28 @@
 import { addNovelAction } from '@/action';
+import { READ_BOOK_EMIT } from '@/constants';
 import { store } from '@/store';
 import { unique } from '@/utils';
+import EventEmitter from 'events';
 import fs from './FileStream';
 
-export default class ReadBook {
+export default class ReadBook extends EventEmitter {
 
   book: IBook;
+  content: string;
+  chapters: IChapter[]
 
   constructor(book: IBook) {
+    super()
     this.book = book;
+    this.content = '';
+    this.chapters = [];
     this.init()
   }
 
   private init = async () => {
     const { id, name, path } = this.book;
-    const content = await fs.readFile(path)
+    const content = fs.readFile(path)
+    this.content = content;
     // console.log(content);
     let chapter = this.getChapter(content)
     chapter = unique(chapter)
@@ -47,9 +55,9 @@ export default class ReadBook {
         }
       });
     }
-    console.log(chapterData);
-    const novel: INovel = { id, name, page: 1, contentPage: 1 };
-    store.dispatch(addNovelAction(novel));
+    this.chapters = chapterData;
+    // console.log(chapterData);
+    this.emit(READ_BOOK_EMIT.INIT_CHAPTER, chapterData);
   }
 
   //(\\s)+[第]{0,1}[0-9一二三四五六七八九十百千万]+[章回节卷集幕计][ \t]*(\\S)*

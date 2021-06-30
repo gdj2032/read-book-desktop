@@ -1,4 +1,4 @@
-import { addBookAction } from '@/action';
+import { addBookAction, addNovelAction } from '@/action';
 import { BOOK_TYPE } from '@/constants';
 import { store } from '@/store';
 import fs from './FileStream';
@@ -62,11 +62,11 @@ export default class ReadFile {
     const reader = new FileReader();
     const gbk = 'gbk';
     reader.readAsText(file, gbk);
-    let newPath = fs.BOOK_PATH + '/' + name + '.txt';
+    const newPath = `${fs.BOOK_PATH}/${name}.txt'`;
     reader.onload = (res: any) => {
-    console.log("🚀 ~ file: ReadFile.tsx ~ line 67 ~ ReadFile ~ res", res)
+    console.log('🚀 ~ file: ReadFile.tsx ~ line 67 ~ ReadFile ~ res', res)
       const content = res.target.result;
-      console.log("🚀 ~ file: ReadFile.tsx ~ line 68 ~ ReadFile ~ content", content)
+      console.log('🚀 ~ file: ReadFile.tsx ~ line 68 ~ ReadFile ~ content', content)
       const book: IBook = {
         author: this.getAuthor(content),
         id: String(new Date().getTime()),
@@ -76,6 +76,8 @@ export default class ReadFile {
         type,
         updateTime: new Date(),
         path: newPath,
+        page: 1,
+        contentPage: 1,
       }
       // console.log(book);
       store.dispatch(addBookAction(book));

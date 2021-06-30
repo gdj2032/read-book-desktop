@@ -154,7 +154,6 @@ class Home extends Component<IProps, IState> {
     const { books } = this.props;
     if (checks.length > 0) {
       this.props.dispatch(removeBookAction(checks))
-      this.props.dispatch(removeNovelAction(checks))
       this.onCancel()
       for (const item of books) {
         if (checks.includes(item.id)) {

@@ -23,6 +23,8 @@ interface IBook {
   type: string; // 'txt' | 'epub',
   updateTime: Date,
   path: string; //当前软件缓存文件的文件地址
+  page: number; //第几章
+  contentPage: number; //章节第几页
 }
 
 interface INovel {
@@ -38,11 +40,6 @@ interface IChapter {
   content: string;
 }
 
-// interface IStoreState {
-//   local: {
-//     books: IBook[];
-//     contents: IContent[];
-//   };
-//   set: {
-//   }
-// }
+interface IContent extends IChapter {
+  contentPage: number;
+}
