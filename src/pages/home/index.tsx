@@ -1,12 +1,12 @@
 import { Component, Fragment } from 'react';
 import './index.scss';
-import { ReadFile } from '@/cls';
+import { ReadFile, fs } from '@/cls';
 import { connect } from '@/store';
 import { BOOK_BG_COLOR, READ_BG_COLOR } from '@/constants';
 import { getWindowSize } from '@/utils';
 import { PlusOutlined, CheckOutlined } from '@ant-design/icons';
 import { Popover } from 'antd';
-import { removeBookAction, updateSetAction } from '@/action';
+import { removeBookAction, removeNovelAction, updateSetAction } from '@/action';
 import { themes } from '@/style';
 import pathConfig from '@/routes/pathConfig';
 
@@ -47,6 +47,7 @@ class Home extends Component<IProps, IState> {
     this.readFile = new ReadFile();
     this.handleSize();
     window.addEventListener('resize', this.handleSize)
+    fs.createCacheFolder();
   }
 
   componentWillUnmount() {
@@ -150,9 +151,16 @@ class Home extends Component<IProps, IState> {
 
   onDelete = () => {
     const { checks } = this.state;
+    const { books } = this.props;
     if (checks.length > 0) {
       this.props.dispatch(removeBookAction(checks))
+      this.props.dispatch(removeNovelAction(checks))
       this.onCancel()
+      for (const item of books) {
+        if (checks.includes(item.id)) {
+          fs.deleteFile(item.path)
+        }
+      }
     }
   }
 
@@ -164,7 +172,7 @@ class Home extends Component<IProps, IState> {
         <div className='m-home-menu' style={{ backgroundColor: set.backgroundColor }}>
           <div className='add-file'>
             <div className='add-view pointer c-button margin_right_20'><PlusOutlined className='add-icon' /> 添加本地图书</div>
-            <input type="file" name="" id="" onChange={this.onInputFile} ref={(c) => this.fileRef = c} />
+            <input type='file' name='' id='' onChange={this.onInputFile} ref={(c) => this.fileRef = c} />
           </div>
           <Popover content={this.popContent}>
             <div className='c-button margin_right_20'>背景色</div>

@@ -1,4 +1,5 @@
 const electron = require('electron');
+const home = require('os').homedir();
 
 const { ipcRenderer, remote } = electron;
 
@@ -7,6 +8,11 @@ const { BrowserWindow } = remote;
 class ElectronBridge {
 
   name = 'eleBridge'
+  process = process;
+  platform = process.platform == 'darwin' ? 'mac' :
+    process.platform == 'win32' ? 'windows' :
+      process.platform == 'linux' ? 'linux' : 'unknown';
+  CACHE_FOLDER_PATH = home + "/READ_BOOK_CACHE";
 
   electron = electron;
 

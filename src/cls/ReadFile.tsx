@@ -1,6 +1,7 @@
 import { addBookAction } from '@/action';
 import { BOOK_TYPE } from '@/constants';
 import { store } from '@/store';
+import fs from './FileStream';
 
 export default class ReadFile {
 
@@ -49,12 +50,11 @@ export default class ReadFile {
   }
 
   private addTxtBook = (file: any) => {
-    const { name: nameType, size } = file;
+    const { name: nameType, size, path } = file;
     const name = this.getBookName(nameType);
     const { books } = store.getState().local;
     const exit = books.find((e: IBook) => e.name === name);
     if (exit) {
-      console.log(1);
       alert('小说名称已存在');
       return;
     };
@@ -62,20 +62,24 @@ export default class ReadFile {
     const reader = new FileReader();
     const gbk = 'gbk';
     reader.readAsText(file, gbk);
+    let newPath = fs.BOOK_PATH + '/' + name + '.txt';
     reader.onload = (res: any) => {
+    console.log("🚀 ~ file: ReadFile.tsx ~ line 67 ~ ReadFile ~ res", res)
       const content = res.target.result;
+      console.log("🚀 ~ file: ReadFile.tsx ~ line 68 ~ ReadFile ~ content", content)
       const book: IBook = {
         author: this.getAuthor(content),
         id: String(new Date().getTime()),
         createTime: new Date(),
-        content,
         name,
         size,
         type,
         updateTime: new Date(),
+        path: newPath,
       }
-      console.log(book);
+      // console.log(book);
       store.dispatch(addBookAction(book));
+      fs.copyFile(newPath, content)
     }
   }
 
@@ -91,7 +95,13 @@ export default class ReadFile {
   private getAuthor = (content: string) => {
     const t = content.split('\n').filter((e: any) => e.includes('作者'));
     if (t.length > 0) {
-      return t[0].split('作者：')[1]
+      if (t[0].includes('作者:')) {
+        return t[0].split('作者:')[1]
+      } else if (t[0].includes('作者：')) {
+        return t[0].split('作者：')[1]
+      } else {
+        return t[0].split('作者')[1]
+      }
     }
     return '';
   }

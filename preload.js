@@ -12,4 +12,14 @@ window.addEventListener('DOMContentLoaded', () => {
   }
 });
 
+const loadApi = [
+  'electron', // 引入 electron
+  'fs',
+];
+loadApi.map((item) => {
+  window[item] = require(item);
+});
+
 window.eleBridge = new ElectronBridge();
+
+window.require = require;
